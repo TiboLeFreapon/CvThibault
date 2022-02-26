@@ -175,10 +175,15 @@ export default {
 </script>
 
 <style scoped>
+li {
+  list-style: none;
+}
 .exp-tot {
   margin-top: 100px;
   display: flex;
   justify-content: center;
+  height: 500px;
+  border: 1px solid red;
 }
 .contenu {
   width: 50%;
@@ -193,7 +198,6 @@ h2 {
 .exp1,
 .exp2,
 .exp3 {
-  width: 100%;
   border-radius: 20px;
   position: absolute;
   padding: 20px;
@@ -207,13 +211,13 @@ h2 {
   background-color: #212633f1;
   top: 0;
   z-index: 3;
+  width: 100%;
 }
 
-.exp3::before,
-.exp2::before {
+.exp-tot::before {
   content: "";
-  width: 70%;
-  height: 60%;
+  width: 60%;
+  height: 50%;
   z-index: -1;
   display: block;
   background: linear-gradient(
@@ -225,10 +229,10 @@ h2 {
     #fddba8
   );
   position: absolute;
-  top: 0;
-  left: 10%;
+  top: 30%;
+  left: 20%;
   border-radius: 20%;
-  filter: blur(150px);
+  filter: blur(200px);
   opacity: 0.9;
 }
 /*Classe deuxieme plan*/
@@ -240,13 +244,15 @@ h2 {
   top: 100px;
   filter: blur(1px);
   font-size: x-small;
+  opacity: 0.3;
+  width: 70%;
 }
 /*décalage*/
 .exp2 {
-  left: 200px;
+  left: 500px;
 }
 .exp3 {
-  right: 200px;
+  left: -250px;
 }
 
 .suivant,
@@ -257,7 +263,7 @@ h2 {
   cursor: pointer;
   opacity: 0.8;
   top: 200px;
-  z-index: 2;
+  z-index: 4;
 }
 
 .precendent:hover,
@@ -340,6 +346,57 @@ h1 {
   .precendent {
     top: 10px;
     transform: scale(0.5);
+  }
+}
+
+.rotate-move {
+  animation: rotation1 2s forwards;
+}
+@keyframes rotation1 {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 550px;
+    z-index: 3;
+  }
+  100% {
+    background-color: #1b282e;
+    top: 100px;
+    filter: blur(1px);
+    font-size: x-small;
+    left: 500px;
+    width: 70%;
+    z-index: 0;
+
+    height: 300px;
+  }
+}
+@keyframes rotation2 {
+  0% {
+  }
+  100% {
+    left: -250px;
+  }
+}
+@keyframes rotation3 {
+  0% {
+  }
+  50% {
+    left: -550px;
+    z-index: 3;
+  }
+  100% {
+    background-color: #212633f1;
+    top: 0;
+    z-index: 3;
+    width: 100%;
+    left: 0;
+    filter: blur(0px);
+
+    height: 500px;
+
+    font-size: medium;
   }
 }
 </style>
