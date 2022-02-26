@@ -62,7 +62,7 @@ export default {
 </script>
 <style>
 body {
-  --background-color-2: #1a1a29;
+  --background-color-2: #1a1a29; /*#1a1a29*/
   background-color: var(--background-color-2);
   /*background-image: url(./MyOwnIcons/background/fondecran1.png);*/
 }
@@ -70,7 +70,7 @@ body {
 #App {
   min-height: 99%;
   max-width: 100%;
-  --back-ground-color1: #212633da; /*couleur1: #a8e6fd*/
+  --back-ground-color1: #1a1a29de; /*couleur1: #a8e6fd  couleur2: #212633da*/
   color: #eff0f3; /*coleur1 :#041765*/
   --back-ground-color-actif-menu: #212633;
   --borders-color: rgb(50, 93, 133);
@@ -111,7 +111,7 @@ body {
   justify-content: center;
 }
 .menu {
-  background-color: var(--back-ground-color1);
+  background-color: #1a1a2941;
   width: 20%;
   height: auto;
   padding-top: 20px;
