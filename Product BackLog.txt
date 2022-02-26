@@ -1,0 +1,33 @@
+SITE DE PRESENTATION : 
+
+-Objectif : créer un site CV avec toutes les compétences que j'ai acquise.
+
+
+-FRONT END: 
+
+	-Présenation : 
+	-Formation: 
+	-Compétence: 
+	-Loisir: 
+	-Contact:
+	-Créer un compte:
+		Petite phrase d'accroche du style "Cela m'a permit de m'entrainer sur le Back-end. De plus, cela me permettra de voir qui et quel société est venue consulter mon site internet. Aucun email vous sera envoyé."
+		Case à remplir : Prénom* Nom Email Message Linkedin. 
+		Info : nombre de comptes créé.
+
+
+-BACK-END: 
+
+
+-API: 
+	-LOGIN avec GOOGLE
+	-GOOGLE ANALYTICS
+
+-TECHNOS: 
+
+	FRONT-END: VUE.JS
+	BACK-END: NODE.JS
+		Module: EXPRESS(BDD)
+	BDD: MONGODDB
+	VERSIONNING: GIT
+	INTEGRATION: JENKIS
