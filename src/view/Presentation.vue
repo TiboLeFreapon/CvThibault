@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style scoped>
+p {
+  color: black;
+}
 .box {
   height: 700px;
   width: 600px;

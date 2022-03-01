@@ -183,7 +183,6 @@ li {
   display: flex;
   justify-content: center;
   height: 500px;
-  border: 1px solid red;
 }
 .contenu {
   width: 50%;
