@@ -41,9 +41,13 @@
       @click="display = !display"
     />
   </div>
+  <div class="main">
+    <router-view />
+  </div>
 
-  <router-view />
-  <Contact></Contact>
+  <div class="footer">
+    <Contact></Contact>
+  </div>
 </template>
 
 <script>
@@ -66,7 +70,9 @@ body {
   background-color: var(--background-color-2);
   /*background-image: url(./MyOwnIcons/background/fondecran1.png);*/
 }
-
+.main {
+  min-height: 70vh;
+}
 #App {
   min-height: 99%;
   max-width: 100%;

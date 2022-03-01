@@ -47,13 +47,14 @@ img {
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 640px) {
   .logo {
-    position: static;
+    position: initial;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 0px;
+  }
+  img {
+    margin: 20px 40px 0 20px;
   }
 }
 </style>

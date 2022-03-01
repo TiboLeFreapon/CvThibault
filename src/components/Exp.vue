@@ -323,78 +323,6 @@ h2 {
 h1 {
   visibility: hidden;
 }
-@media (max-width: 650px) {
-  .contenu {
-    font-size: smaller;
-  }
-}
-@media (max-width: 720px) {
-  .suivant,
-  .precendent {
-    transform: scale(0.7);
-  }
-  .exp-tot {
-    margin-top: 0;
-  }
-}
-@media (max-width: 450px) {
-  h1 {
-    visibility: visible;
-    position: relative;
-    top: -90px;
-  }
-  .exp1 {
-    margin: 10px;
-
-    width: 80%;
-  }
-  .exp-tot {
-    position: relative;
-    top: -75px;
-    flex-direction: column;
-    margin-top: 0;
-  }
-  .contenu {
-    width: 100%;
-    top: 60px;
-  }
-  .exp2 {
-    left: 100px;
-    height: 300px;
-    font-size: xx-small;
-  }
-  .exp3 {
-    right: 100px;
-    font-size: xx-small;
-    height: 300px;
-  }
-  .suivant,
-  .precendent {
-    z-index: 4;
-    justify-self: center;
-    position: absolute;
-  }
-
-  .precendent {
-    top: -30px;
-  }
-  .suivant {
-    top: -30px;
-    left: 60%;
-  }
-}
-@media (max-width: 316px) {
-  h1 {
-    font-size: smaller;
-    position: relative;
-    top: -65px;
-  }
-  .suivant,
-  .precendent {
-    top: 10px;
-    transform: scale(0.5);
-  }
-}
 
 /* en cliquant, c'est classe seront prise pour permettre la rotation des divs */
 .rotSuivant1 {
@@ -573,6 +501,102 @@ h1 {
 
     font-size: medium;
     opacity: var(--opacity-pos-0);
+  }
+}
+
+/**********************  mediaQuery  *******************/
+
+@media (max-width: 650px) {
+  .contenu {
+    font-size: smaller;
+  }
+}
+@media (max-width: 720px) {
+  .suivant,
+  .precendent {
+    transform: scale(0.7);
+  }
+  .exp-tot {
+    margin-top: 0;
+  }
+}
+@media (max-width: 450px) {
+  h1 {
+    visibility: visible;
+    position: relative;
+    top: -90px;
+  }
+
+  .exp-tot {
+    --height-pos-0: auto;
+    --height-pos-1: auto;
+    --height-pos-2: auto;
+
+    --width-pos-0: 70%;
+    --width-pos-1: 70%;
+    --width-pos-2: 70%;
+
+    --left-pos-0: 10%;
+    --left-pos-1: 500px;
+    --left-pos-2: -250px;
+
+    --top-pos-0: 0;
+    --top-pos-1: 100px;
+    --top-pos-2: 100px;
+
+    --opacity-pos-0: ;
+    --opacity-pos-1: 0.3;
+    --opacity-pos-2: 0.3;
+
+    --left-transaction-0to1: 550px;
+    --left-transaction-2to0: -550px;
+  }
+
+  .exp-tot {
+    position: relative;
+    top: -100px;
+    flex-direction: column;
+    height: 600px;
+  }
+  .contenu {
+    width: 100%;
+    top: -280px;
+  }
+  .suivant,
+  .precendent {
+    z-index: 4;
+    justify-self: center;
+    position: absolute;
+  }
+
+  .exp1 {
+    height: var(--height-pos-0);
+    left: var(--left-pos-0);
+  }
+  .exp1,
+  .exp2,
+  .exp3 {
+    min-height: 450px;
+  }
+  .precendent {
+    top: 40%;
+  }
+  .suivant {
+    top: 40%;
+    left: 60%;
+    opacity: 0.3;
+  }
+}
+@media (max-width: 316px) {
+  h1 {
+    font-size: smaller;
+    position: relative;
+    top: -65px;
+  }
+  .suivant,
+  .precendent {
+    top: 10px;
+    transform: scale(0.5);
   }
 }
 </style>

@@ -2,3 +2,6 @@ V1: Site terminé
 Il manque les étoiles sur les comtpétences. 
 Je vais m'attaquer au animation de rotation sur l'expérience.
 
+
+V1.1.1: 
+animation faite sur l'Exp
