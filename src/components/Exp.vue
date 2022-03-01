@@ -12,9 +12,15 @@
         v-for="experience in experiences"
         :key="experience.id"
         :class="{
-          exp1: experience.pos === 0,
-          exp2: experience.pos === 1,
-          exp3: experience.pos === 2,
+          exp1: experience.id === 0,
+          exp2: experience.id === 1,
+          exp3: experience.id === 2,
+          rotSuivant1: experience.pos === 0 && rotationSuivant,
+          rotSuivant2: experience.pos === 1 && rotationSuivant,
+          rotSuivant3: experience.pos === 2 && rotationSuivant,
+          rotPrecedent1: experience.pos === 0 && rotationPrecedent,
+          rotPrecedent2: experience.pos === 1 && rotationPrecedent,
+          rotPrecedent3: experience.pos === 2 && rotationPrecedent,
         }"
       >
         <h2>{{ experience.societe }}</h2>
@@ -140,6 +146,9 @@ export default {
           ],
         },
       ],
+      rotationSuivant: false,
+      rotationPrecedent: false,
+      nbrClick: 0,
     };
   },
   computed: {
@@ -150,17 +159,24 @@ export default {
   methods: {
     suivant() {
       /*fonction permettant de recupérer le reste d'une division pour changer la class des div, donc leur position*/
-      this.experiences[0].pos += 1;
-      this.experiences[0].pos = this.experiences[0].pos % 3;
+      if (!this.rotationSuivant) {
+        this.rotationSuivant = true;
+      } else {
+        this.experiences[0].pos += 1;
+        this.experiences[0].pos = this.experiences[0].pos % 3;
 
-      this.experiences[1].pos += 1;
-      this.experiences[1].pos = this.experiences[1].pos % 3;
+        this.experiences[1].pos += 1;
+        this.experiences[1].pos = this.experiences[1].pos % 3;
 
-      this.experiences[2].pos += 1;
-      this.experiences[2].pos = this.experiences[2].pos % 3;
+        this.experiences[2].pos += 1;
+        this.experiences[2].pos = this.experiences[2].pos % 3;
+        this.rotationSuivant = true;
+        this.rotationPrecedent = false;
+      }
     },
     precedent() {
       /*fonction permettant de recupérer le reste d'une division pour changer la class des div, donc leur position*/
+
       this.experiences[0].pos += 2;
       this.experiences[0].pos = this.experiences[0].pos % 3;
 
@@ -169,12 +185,44 @@ export default {
 
       this.experiences[2].pos += 2;
       this.experiences[2].pos = this.experiences[2].pos % 3;
+
+      this.rotationPrecedent = true;
+      this.rotationSuivant = false;
     },
   },
 };
 </script>
 
 <style scoped>
+/*
+ POS0= DROITE
+POS1= DROITE
+POS2= GAUCHE
+ */
+.exp-tot {
+  --height-pos-0: 500px;
+  --height-pos-1: 300px;
+  --height-pos-2: 300px;
+
+  --width-pos-0: 100%;
+  --width-pos-1: 70%;
+  --width-pos-2: 70%;
+
+  --left-pos-0: 0px;
+  --left-pos-1: 500px;
+  --left-pos-2: -250px;
+
+  --top-pos-0: 0;
+  --top-pos-1: 100px;
+  --top-pos-2: 100px;
+
+  --opacity-pos-0: ;
+  --opacity-pos-1: 0.3;
+  --opacity-pos-2: 0.3;
+
+  --left-transaction-0to1: 550px;
+  --left-transaction-2to0: -550px;
+}
 li {
   list-style: none;
 }
@@ -206,11 +254,29 @@ h2 {
 }
 
 .exp1 {
-  height: 500px;
+  height: var(--height-pos-0);
   background-color: #212633f1;
-  top: 0;
+  top: var(--top-pos-0);
   z-index: 3;
-  width: 100%;
+  width: var(--width-pos-0);
+}
+.exp2,
+.exp3 {
+  height: var(--height-pos-1);
+  background-color: #212633f1;
+  z-index: 0;
+  top: var(--top-pos-1);
+  filter: blur(1px);
+  font-size: x-small;
+  opacity: var(--opacity-pos-1);
+  width: var(--width-pos-1);
+}
+/*décalage*/
+.exp2 {
+  left: var(--left-pos-1);
+}
+.exp3 {
+  left: var(--left-pos-2);
 }
 
 .exp-tot::before {
@@ -235,24 +301,6 @@ h2 {
   opacity: 0.9;
 }
 /*Classe deuxieme plan*/
-.exp2,
-.exp3 {
-  height: 300px;
-  background-color: #1b282e;
-  z-index: 0;
-  top: 100px;
-  filter: blur(1px);
-  font-size: x-small;
-  opacity: 0.3;
-  width: 70%;
-}
-/*décalage*/
-.exp2 {
-  left: 500px;
-}
-.exp3 {
-  left: -250px;
-}
 
 .suivant,
 .precendent {
@@ -348,54 +396,183 @@ h1 {
   }
 }
 
-.rotate-move {
-  animation: rotation1 2s forwards;
+/* en cliquant, c'est classe seront prise pour permettre la rotation des divs */
+.rotSuivant1 {
+  animation: rotation0to1 2s forwards;
 }
-@keyframes rotation1 {
+.rotSuivant2 {
+  animation: rotation1to2 2s forwards;
+}
+.rotSuivant3 {
+  animation: rotation2to0 2s forwards;
+}
+
+/* annimation des ratation */
+@keyframes rotation0to1 {
   0% {
-    left: 0;
+    font-size: medium;
+    left: var(--left-pos-0);
+    width: var(--width-pos-0);
+    height: var(--height-pos-0);
+    top: var(--top-pos-0);
+    opacity: var(--opacity-pos-0);
   }
   50% {
-    left: 550px;
+    left: var(--left-transaction-0to1);
     z-index: 3;
+    opacity: var(--opacity-pos-0);
   }
   100% {
     background-color: #1b282e;
-    top: 100px;
+    top: var(--top-pos-1);
     filter: blur(1px);
     font-size: x-small;
-    left: 500px;
-    width: 70%;
+    left: var(--left-pos-1);
+    width: var(--width-pos-1);
     z-index: 0;
-
-    height: 300px;
+    opacity: var(--opacity-pos-1);
+    height: var(--height-pos-1);
   }
 }
-@keyframes rotation2 {
+@keyframes rotation1to2 {
   0% {
+    left: var(--left-pos-1);
+    width: var(--width-pos-1);
+    height: var(--height-pos-1);
+    top: var(--top-pos-1);
+    font-size: x-small;
+
+    opacity: var(--opacity-pos-1);
   }
   100% {
-    left: -250px;
+    left: var(--left-pos-2);
+    top: var(--top-pos-2);
+    opacity: var(--opacity-pos-2);
+    background-color: #1b282e;
+    z-index: 0;
+    filter: blur(1px);
+    height: var(--height-pos-2);
+
+    opacity: var(--opacity-pos-2);
+    width: var(--width-pos-2);
+    font-size: x-small;
   }
 }
-@keyframes rotation3 {
+@keyframes rotation2to0 {
   0% {
+    left: var(--left-pos-2);
+    width: var(--width-pos-2);
+    height: var(--height-pos-2);
+    top: var(--top-pos-2);
+
+    opacity: var(--opacity-pos-2);
+    font-size: x-small;
   }
   50% {
-    left: -550px;
+    left: var(--left-transaction-2to0);
     z-index: 3;
   }
   100% {
     background-color: #212633f1;
-    top: 0;
+    top: var(--top-pos-0);
     z-index: 3;
-    width: 100%;
-    left: 0;
+    width: var(--width-pos-0);
+    left: var(--left-pos-0);
     filter: blur(0px);
 
-    height: 500px;
+    height: var(--height-pos-0);
 
     font-size: medium;
+    opacity: var(--opacity-pos-0);
+  }
+}
+
+/* ************************Rotations precedentes************************** */
+
+.rotPrecedent1 {
+  animation: rotation0to2 2s forwards;
+}
+.rotPrecedent2 {
+  animation: rotation2to1 2s forwards;
+}
+.rotPrecedent3 {
+  animation: rotation1to0 2s forwards;
+}
+@keyframes rotation0to2 {
+  0% {
+    font-size: medium;
+    left: var(--left-pos-0);
+    width: var(--width-pos-0);
+    height: var(--height-pos-0);
+    top: var(--top-pos-0);
+    opacity: var(--opacity-pos-0);
+  }
+  50% {
+    left: var(--left-transaction-2to0);
+    z-index: 3;
+  }
+  100% {
+    background-color: #1b282e;
+    top: var(--top-pos-2);
+    filter: blur(1px);
+    font-size: x-small;
+    left: var(--left-pos-2);
+    width: var(--width-pos-2);
+    z-index: 0;
+    opacity: var(--opacity-pos-2);
+    height: var(--height-pos-2);
+  }
+}
+@keyframes rotation2to1 {
+  0% {
+    left: var(--left-pos-2);
+    width: var(--width-pos-2);
+    height: var(--height-pos-2);
+    top: var(--top-pos-2);
+    font-size: x-small;
+
+    opacity: var(--opacity-pos-2);
+  }
+  100% {
+    left: var(--left-pos-1);
+    top: var(--top-pos-1);
+    opacity: var(--opacity-pos-1);
+    background-color: #1b282e;
+    z-index: 0;
+    filter: blur(1px);
+    height: var(--height-pos-1);
+
+    opacity: var(--opacity-pos-1);
+    width: var(--width-pos-1);
+    font-size: x-small;
+  }
+}
+@keyframes rotation1to0 {
+  0% {
+    left: var(--left-pos-1);
+    width: var(--width-pos-1);
+    height: var(--height-pos-1);
+    top: var(--top-pos-1);
+
+    opacity: var(--opacity-pos-1);
+    font-size: x-small;
+  }
+  50% {
+    left: var(--left-transaction-0to1);
+    z-index: 3;
+  }
+  100% {
+    background-color: #212633f1;
+    top: var(--top-pos-0);
+    z-index: 3;
+    width: var(--width-pos-0);
+    left: var(--left-pos-0);
+    filter: blur(0px);
+
+    height: var(--height-pos-0);
+
+    font-size: medium;
+    opacity: var(--opacity-pos-0);
   }
 }
 </style>
