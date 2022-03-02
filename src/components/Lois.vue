@@ -12,7 +12,7 @@
           />
         </h3>
       </div>
-      <div v-if="vue[loisir.id]">
+      <div class="losir-text" v-if="vue[loisir.id]">
         <p>{{ loisir.explication }}</p>
       </div>
     </div>
@@ -109,13 +109,16 @@ export default {
   cursor: pointer;
   opacity: 0.5;
 }
+
 h3 {
   cursor: pointer;
 }
 .shrink {
-  transform: rotate(180deg);
+  animation: rotationFleche 1s forwards;
 }
-
+.extend {
+  animation: rotationFlech 0.5s forwards;
+}
 .extend:hover {
   opacity: 1;
 }
@@ -125,6 +128,10 @@ h3 {
 
 p {
   font-size: larger;
+}
+
+.loisir-text {
+  animation: appear 1s forwards;
 }
 
 h1 {
@@ -172,6 +179,30 @@ h1 {
   }
   .lois {
     top: -50px;
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes rotationFleche {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(540deg);
+  }
+}
+@keyframes rotationFleche1 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
   }
 }
 </style>

@@ -143,7 +143,6 @@ export default {
 
 <style scoped>
 .comp {
-  background-color: var(--back-ground-color1);
   border-radius: 20px;
   padding: 50px;
   width: 60%;
@@ -152,7 +151,7 @@ export default {
 }
 
 .comp::before {
-  content: "hello";
+  content: "";
   width: 65%;
   height: 50%;
   border-radius: 5px;
@@ -180,7 +179,7 @@ export default {
   border-radius: 10px;
   margin: auto;
   flex-direction: column;
-  --backgroundcolortable: #1a1a29;
+  --backgroundcolortable: #1a1a295d;
   opacity: 1;
 }
 .butt {
@@ -188,9 +187,9 @@ export default {
   border: none;
 }
 .contenu {
-  background-color: #1a1a292a;
+  background-color: var(--back-ground-color1);
   margin: 0%;
-  border: 2px solid var(--background-color-2);
+  border: 2px solid var(--back-ground-color1);
   border-top: none;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -203,20 +202,23 @@ button {
   border-top-right-radius: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
-  border: 2px solid var(--background-color-2);
-  background-color: var(--background-color-2);
+  background-color: var(--backgroundcolortable);
   font-size: larger;
   color: rgb(255, 255, 255);
+  border: none;
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /*partie du tableau active*/
 .actives {
-  background-color: #1a1a292a;
-  border-bottom: 2px solid var(--background-color-2);
+  background-color: var(--back-ground-color1);
+  border: none;
+}
+.actives:hover {
+  opacity: 1;
 }
 
 .contenu {

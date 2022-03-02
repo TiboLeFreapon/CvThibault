@@ -2,7 +2,18 @@
   <div class="contenu" v-for="langage in langages" :key="langage.id">
     <div class="lang">
       <h3>{{ langage.name }}</h3>
-      <p class="stars">{{ langage.stars }}</p>
+      <div class="stars">
+        <div class="etoiles">
+          <img
+            src="../MyOwnIcons/etoiles1.png"
+            class="img-etoiles"
+            alt="étoiles"
+          />
+        </div>
+        <div class="remplissage">
+          <div class="rempl"></div>
+        </div>
+      </div>
     </div>
     <div
       class="lang1"
@@ -24,7 +35,7 @@ export default {
         {
           id: 0,
           name: "HTML",
-          stars: "5",
+          stars: 5,
           frameworks: [],
         },
         {
@@ -50,6 +61,9 @@ export default {
     frameworkLangage() {
       return this.langages;
     },
+    cacl(a) {
+      return (a / 5) * 100;
+    },
   },
 };
 </script>
@@ -57,5 +71,39 @@ export default {
 <style scoped>
 h3 {
   width: 30%;
+}
+
+.lang {
+  border: 1px solid red;
+}
+.stars {
+  border: 1px solid green;
+}
+.etoiles {
+  width: 200px;
+  height: auto;
+  position: relative;
+  top: 20%;
+  left: 30%;
+  z-index: 2;
+  opacity: 1;
+}
+.img-etoiles {
+  width: 200px;
+}
+.remplissage {
+  z-index: 1;
+  width: 200px;
+  height: 40px;
+  position: relative;
+  top: -28px;
+  left: 30%;
+
+  background-color: #3535478e;
+}
+.rempl {
+  background-color: rgba(255, 255, 0, 0.664);
+  height: 40px;
+  margin: 0;
 }
 </style>

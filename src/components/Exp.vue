@@ -511,13 +511,18 @@ h1 {
     font-size: smaller;
   }
 }
-@media (max-width: 720px) {
+@media (max-width: 755px) {
   .suivant,
   .precendent {
     transform: scale(0.7);
   }
   .exp-tot {
     margin-top: 0;
+  }
+  .exp1,
+  .ep2,
+  .exp3 {
+    font-size: smaller;
   }
 }
 @media (max-width: 450px) {
