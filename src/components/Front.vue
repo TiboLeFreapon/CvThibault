@@ -4,14 +4,13 @@
       <h3>{{ langage.name }}</h3>
       <div class="stars">
         <div class="etoiles">
+          <div class="rempl" :style="{ width: langage.stars + '%' }"></div>
+          <div class="rempl-tot"></div>
           <img
             src="../MyOwnIcons/etoiles1.png"
             class="img-etoiles"
             alt="étoiles"
           />
-        </div>
-        <div class="remplissage">
-          <div class="rempl"></div>
         </div>
       </div>
     </div>
@@ -21,7 +20,15 @@
       :key="index"
     >
       <h3>{{ framework.name }}</h3>
-      <p class="stars1">{{ framework.stars }}</p>
+      <div class="etoiles1">
+        <div class="rempl1" :style="{ width: framework.stars + '%' }"></div>
+        <div class="rempl-tot"></div>
+        <!-- <img
+          src="../MyOwnIcons/etoiles1.png"
+          class="img-etoiles"
+          alt="étoiles"
+        /> -->
+      </div>
     </div>
   </div>
 </template>
@@ -35,23 +42,23 @@ export default {
         {
           id: 0,
           name: "HTML",
-          stars: 5,
+          stars: 95,
           frameworks: [],
         },
         {
           id: 1,
           name: "CSS",
-          stars: 5,
-          frameworks: [{ name: "Bootstrap", stars: 3 }],
+          stars: 90,
+          frameworks: [{ name: "Bootstrap", stars: 65 }],
         },
         {
           id: 2,
           name: "JavaScript",
-          stars: 4,
+          stars: 80,
           frameworks: [
-            { name: "Vue.Js", stars: 3 },
-            { name: "JQuery", stars: 2 },
-            { name: "React", stars: 2 },
+            { name: "Vue.Js", stars: 80 },
+            { name: "JQuery", stars: 40 },
+            { name: "React", stars: 30 },
           ],
         },
       ],
@@ -60,9 +67,6 @@ export default {
   computed: {
     frameworkLangage() {
       return this.langages;
-    },
-    cacl(a) {
-      return (a / 5) * 100;
     },
   },
 };
@@ -73,37 +77,92 @@ h3 {
   width: 30%;
 }
 
-.lang {
-  border: 1px solid red;
-}
-.stars {
-  border: 1px solid green;
-}
 .etoiles {
-  width: 200px;
+  width: 70%;
   height: auto;
   position: relative;
   top: 20%;
-  left: 30%;
-  z-index: 2;
+  left: 0px;
   opacity: 1;
+  margin: 0;
 }
 .img-etoiles {
-  width: 200px;
-}
-.remplissage {
-  z-index: 1;
-  width: 200px;
-  height: 40px;
   position: relative;
-  top: -28px;
-  left: 30%;
+  width: 100%;
+  z-index: 2;
+}
+.rempl-tot {
+  position: absolute;
+  top: 0px;
+  background-color: rgb(104, 104, 104);
+  height: 80%;
+  width: 98%;
+  z-index: 0;
 
-  background-color: #3535478e;
+  border-radius: 5px;
 }
 .rempl {
-  background-color: rgba(255, 255, 0, 0.664);
-  height: 40px;
+  position: absolute;
+  top: 0px;
+  background: linear-gradient(
+    rgb(255, 42, 255),
+    rgb(255, 87, 233),
+    #faa8fd,
+    #faa8fd,
+    #faa8fd,
+    #faa8fd
+  );
+  height: 80%;
+  z-index: 1;
+  border-top-left-radius: 5px;
+
+  border-bottom-left-radius: 5px;
+}
+
+.etoiles1 {
+  width: 70%;
+  height: auto;
+  position: relative;
+  left: 25%;
+  opacity: 1;
   margin: 0;
+  transform: scale(0.2);
+  top: 10px;
+}
+.rempl1 {
+  position: absolute;
+  top: 0px;
+  background: linear-gradient(
+    rgb(42, 159, 255),
+    rgb(87, 179, 255),
+    #a8e6fd,
+    #a8e6fd,
+    #a8e6fd
+  );
+  height: 80%;
+  z-index: 1;
+}
+.lang1 {
+  height: 50px;
+}
+
+@media (max-width: 850px) {
+  .etoiles {
+    width: 100%;
+    left: -30%;
+  }
+  .etoiles1 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .etoiles {
+    width: 150%;
+    left: -50%;
+  }
+  .etoiles1 {
+    width: 200%;
+  }
 }
 </style>

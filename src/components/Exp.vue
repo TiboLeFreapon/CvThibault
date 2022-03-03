@@ -506,11 +506,6 @@ h1 {
 
 /**********************  mediaQuery  *******************/
 
-@media (max-width: 650px) {
-  .contenu {
-    font-size: smaller;
-  }
-}
 @media (max-width: 755px) {
   .suivant,
   .precendent {
@@ -522,10 +517,10 @@ h1 {
   .exp1,
   .ep2,
   .exp3 {
-    font-size: smaller;
+    font-size: smaller !important;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 480px) {
   h1 {
     visibility: visible;
     position: relative;
@@ -582,6 +577,7 @@ h1 {
   .exp2,
   .exp3 {
     min-height: 450px;
+    font-size: smaller !important;
   }
   .precendent {
     top: 40%;
@@ -594,7 +590,7 @@ h1 {
 }
 @media (max-width: 316px) {
   h1 {
-    font-size: smaller;
+    font-size: smaller !important;
     position: relative;
     top: -65px;
   }
@@ -602,6 +598,12 @@ h1 {
   .precendent {
     top: 10px;
     transform: scale(0.5);
+  }
+  .exp1,
+  .exp2,
+  .exp3 {
+    min-height: 450px;
+    font-size: small !important;
   }
 }
 </style>

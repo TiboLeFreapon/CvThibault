@@ -66,10 +66,10 @@ export default {
 </script>
 <style>
 body {
-  --background-color-2: #4dac5a; /*#1a1a29*/
+  --background-color-2: #1a1a29; /*#1a1a29*/
   background-color: var(--background-color-2);
   /*background-image: url(./MyOwnIcons/background/fondecran1.png);*/
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .main {
   min-height: 70vh;

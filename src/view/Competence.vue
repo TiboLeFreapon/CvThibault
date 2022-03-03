@@ -187,7 +187,7 @@ export default {
   border: none;
 }
 .contenu {
-  background-color: var(--back-ground-color1);
+  background-color: #1a1a29;
   margin: 0%;
   border: 2px solid var(--back-ground-color1);
   border-top: none;
@@ -214,7 +214,7 @@ button:hover {
 
 /*partie du tableau active*/
 .actives {
-  background-color: var(--back-ground-color1);
+  background-color: #1a1a29;
   border: none;
 }
 .actives:hover {
@@ -260,5 +260,35 @@ h1 {
     position: relative;
     top: -40px;
   }
+}
+
+.etoiles {
+  width: 70%;
+  height: auto;
+  position: relative;
+  top: 20%;
+  left: 0px;
+  opacity: 1;
+  margin: 0;
+}
+.img-etoiles {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.rempl {
+  position: absolute;
+  top: 0px;
+  background: linear-gradient(
+    rgb(255, 42, 255),
+    rgb(255, 87, 233),
+    #faa8fd,
+    #faa8fd,
+    #faa8fd
+  );
+  height: 80%;
+  border: 1px solid green;
+  z-index: 1;
 }
 </style>
