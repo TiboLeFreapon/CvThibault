@@ -23,6 +23,8 @@ export default {
 
 <style scoped>
 .logo {
+  visibility: hidden;
+  animation: appirationReseaux 1s 20s forwards;
   position: fixed;
   right: 0;
   top: 40%;
@@ -38,7 +40,7 @@ img {
 
 @media (max-width: 900px) {
   img {
-    padding: 5px;
+    padding: 10px;
     height: 25px;
     width: 25px;
   }
@@ -55,6 +57,18 @@ img {
   }
   img {
     margin: 20px 40px 0 20px;
+  }
+}
+
+@keyframes appirationReseaux {
+  0% {
+    visibility: visible;
+    transform: translateX(100px);
+  }
+  100% {
+    transform: translateX(0px);
+
+    visibility: visible;
   }
 }
 </style>

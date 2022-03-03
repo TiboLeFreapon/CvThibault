@@ -1,7 +1,7 @@
 <template>
   <h1>LOISIRS</h1>
   <div class="lois">
-    <p>Mes passions sont intances mais a duré indéterminée !</p>
+    <p>Voici, ci-dessous, mes loisirs principaux.</p>
     <div class="contenu" v-for="loisir in loisirs" :key="loisir.id">
       <div @click="vue[loisir.id] = !vue[loisir.id]">
         <h3>
@@ -12,7 +12,12 @@
           />
         </h3>
       </div>
-      <div class="losir-text" v-if="vue[loisir.id]">
+      <div
+        :class="{
+          'text-appear': vue[loisir.id],
+          'text-desappear': !vue[loisir.id],
+        }"
+      >
         <p>{{ loisir.explication }}</p>
       </div>
     </div>
@@ -29,19 +34,19 @@ export default {
           id: 0,
           name: "Voyage",
           explication:
-            "J'ai visité plusieurs pays avec ma famille ou mes amis. J'ai visité la Tunisie avec ma famille, le Mexique et Bali avec mes amis, Les USA tout seul et actuellement le Canada avec ma copine.",
+            "J'ai visité plusieurs pays avec ma famille ou mes amis. Notament la Tunisie avec ma famille, le Mexique et Bali avec mes amis, Les USA tout seul et actuellement le Canada avec ma copine.",
         },
         {
           id: 1,
           name: "Echec",
           explication:
-            "J'adore ce jeu. Mon pick elo a été 1200. J'ai un peu arreté de jouer car il fallait apprendre les ouvertures pour pouvoir grinder un peu plus. Alors que je joue au jeu uniquement pour sa partie statégique.",
+            "J'adore ce jeu. Mon pick elo a été 1200. J'ai un peu arreté car il fallait apprendre les ouvertures pour pouvoir s'améliorer. Je joue principalement pour le côté stratégique du jeu.",
         },
         {
           id: 2,
           name: "Sport",
           explication:
-            "Footing du dimanche pour se vider la tête ainsi que différentes activité sportive entre amis.",
+            "J'ai été sportif de haut niveau dans le football en tant que gardien de but. J'ai joué contre Mbappé quand il était encore à Monaco en 17ans National. Désormais, j'ai arrêté le foot mais continue a faire du sport.",
         },
         {
           id: 3,
@@ -57,9 +62,9 @@ export default {
         },
         {
           id: 5,
-          name: "Philosophie",
+          name: "Jeux vidéos",
           explication:
-            "Toujours s'endormir avec un audio de philosophie pour essayer de comprendre les différtes facon de penser donc les autres.",
+            "Mes 2 jeux préférés sont league of legend et Track Mania.",
         },
       ],
       vue: [false, false, false, false, false, false],
@@ -130,8 +135,13 @@ p {
   font-size: larger;
 }
 
-.loisir-text {
+.text-appear {
   animation: appear 1s forwards;
+}
+.text-desappear {
+  /* animation: desappear 0.2s forwards; */
+  position: absolute;
+  visibility: hidden;
 }
 
 h1 {
@@ -183,12 +193,24 @@ h1 {
 }
 @keyframes appear {
   0% {
-    opacity: 0;
+    transform: translateX(-20px);
   }
   100% {
-    opacity: 1;
+    transform: translateY(0px);
   }
 }
+@keyframes desappear {
+  0% {
+    transform: translateY(0px);
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(-10px);
+
+    opacity: 0;
+  }
+}
+
 @keyframes rotationFleche {
   0% {
     transform: rotate(0deg);

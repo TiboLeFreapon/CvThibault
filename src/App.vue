@@ -95,6 +95,8 @@ body {
 }
 
 #nav {
+  visibility: hidden;
+  animation: ApparitionMenu 2s 23s forwards;
   display: flex;
   top: 0px;
   padding-bottom: 50px;
@@ -242,6 +244,16 @@ a {
     font-size: smaller;
     position: relative;
     top: -70px;
+  }
+}
+
+@keyframes ApparitionMenu {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    visibility: visible;
+    transform: translateY(0px);
   }
 }
 </style>

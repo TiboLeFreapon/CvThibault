@@ -7,16 +7,12 @@
     <div class="conv">
       <img src="../MyOwnIcons/bulle.png" alt="" class="bulle" />
       <div class="text">
-        <p class="p1">Salut ! Moi c'est Thibault, J'ai 24 ans.</p>
-        <p class="p2">
-          Bienvenue sur mon site, je suis un développeur full stack junior.
-        </p>
+        <p class="p1">Hello ! Moi c'est Thibault, J'ai 24 ans.</p>
+        <p class="p2">Bienvenue sur mon site, je suis un développeur web.</p>
         <p class="p3">Vous pouvez découvrir mon CV à travers ce site.</p>
-        <p class="p4">
-          Il est 100% développé par moi même et sans copié/ collé Stack
-          Overflow. ;)
-        </p>
+        <p class="p4">Il est développé 100% développé par moi même en VueJs.</p>
         <p class="p5">Mes réseaux sont sur le côté si jamais !</p>
+        <p class="p6">Mes réseaux sont en bas si jamais !</p>
       </div>
     </div>
   </div>
@@ -53,7 +49,7 @@ p {
 .moi {
   width: 100%;
   animation-name: presentation;
-  animation-duration: 3s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
 }
 
@@ -65,7 +61,7 @@ p {
   animation-duration: 20s;
   animation-iteration-count: 1;
   animation-delay: 3s;
-  visibility: hidden;
+  opacity: 0;
 }
 
 .text {
@@ -84,8 +80,8 @@ p {
   position: absolute;
   animation-name: presentation2;
   animation-duration: 3s;
-  visibility: hidden;
   top: 0;
+  visibility: hidden;
 }
 
 .p2,
@@ -119,7 +115,11 @@ p {
 .p5 {
   animation-delay: 18s;
 }
-
+.p6 {
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
 @keyframes presentation {
   0% {
     transform: scale(0);
@@ -130,11 +130,14 @@ p {
 }
 
 @keyframes presentation1 {
-  0% {
-    visibility: hidden;
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
   }
   100% {
-    visibility: visible;
+    opacity: 0;
   }
 }
 @keyframes presentation2 {
@@ -152,6 +155,53 @@ h1 {
 @media (max-width: 450px) {
   h1 {
     visibility: visible;
+    position: relative;
+    top: -90px;
+  }
+  .box {
+    transform: scale(0.8);
+    top: -100px;
+    position: relative;
+    left: -10%;
+  }
+}
+@media (max-width: 370px) {
+  h1 {
+    visibility: visible;
+    position: relative;
+    top: -70px;
+    font-size: smaller;
+  }
+  .box {
+    transform: scale(0.7);
+    top: -110px;
+    position: relative;
+    left: -30%;
+  }
+}
+@media (max-width: 310px) {
+  h1 {
+    visibility: visible;
+    position: relative;
+    top: -70px;
+    font-size: smaller;
+  }
+  .box {
+    transform: scale(0.6);
+    top: -110px;
+    position: relative;
+    left: -40%;
+  }
+}
+
+@media (max-width: 640px) {
+  .p5 {
+    animation: none;
+  }
+  .p6 {
+    animation-name: presentation2;
+    animation-duration: 3s;
+    animation-delay: 18s;
   }
 }
 </style>

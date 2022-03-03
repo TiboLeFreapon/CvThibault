@@ -21,7 +21,7 @@ export default {
       diplomes: [
         {
           id: 0,
-          name: 'Master "Expert informatique et systemes d`informations"',
+          name: `Master "Expert informatique et systemes d'informations"`,
           specialité: "Developpement Web/ Méthodes Agile",
           date: "2019/2021",
           ecole: "Epsi Lyon",
@@ -42,7 +42,7 @@ export default {
           date: "2015-2018",
           ecole: "Université Savoie MontBlanc Annecy",
           particularité:
-            "Sportif de haut niveau: Le dîplome s`obtient en 3ans en non 2 car nous avions pas cours l`après-midi pour faire notre sport.",
+            "Sportif de haut niveau: Le dîplome s'obtient en 3ans en non 2 car nous avions pas cours l'après-midi pour faire notre sport.",
         },
         {
           id: 3,
