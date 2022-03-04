@@ -11,10 +11,11 @@
       <img src="../MyOwnIcons/gmail.png" alt="logo gmail"
     /></a>
     <br />
-    <img src="../MyOwnIcons/insta.png" alt="logo insta" />
+    <a href="https://www.instagram.com/thibault.schmi2t/">
+      <img src="../MyOwnIcons/insta.png" alt="logo insta"
+    /></a>
   </div>
 </template>
-
 <script>
 export default {
   name: "Contact",
