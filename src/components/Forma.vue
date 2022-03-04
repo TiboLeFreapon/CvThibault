@@ -121,7 +121,7 @@ h1 {
   h1 {
     visibility: visible;
     position: relative;
-    top: -90px;
+    top: -85px;
   }
 
   h2 {

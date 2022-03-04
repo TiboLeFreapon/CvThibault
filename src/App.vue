@@ -9,7 +9,7 @@
     >
 
     <router-link to="/" class="menu" @click="display = false"
-      >Présentations</router-link
+      >Présentation</router-link
     >
 
     <router-link to="/Experience" class="menu" @click="display = false"
@@ -207,7 +207,7 @@ a {
 
 @media (max-width: 450px) {
   #nav {
-    visibility: hidden;
+    visibility: hidden !important;
   }
   #nav2 {
     visibility: visible;
@@ -229,7 +229,7 @@ a {
     opacity: 1;
   }
   .menu2 {
-    visibility: visible;
+    animation: ApparitionMenu 2s 23s forwards;
   }
 
   a {
@@ -239,6 +239,7 @@ a {
 @media (max-width: 316px) {
   .menu2 {
     transform: scale(0.8);
+    animation: ApparitionMenu 2s 23s forwards;
   }
   h1 {
     font-size: smaller;

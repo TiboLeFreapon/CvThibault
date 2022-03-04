@@ -65,9 +65,9 @@ export default {
               name: "Développeur Full Stack",
               taches: [
                 {
-                  detail: "Développement d'interface Vue.js.",
+                  detail: "Développement d'interface en Vue.js.",
                 },
-                { detail: "Création de base de donnée via MongoDb." },
+                { detail: "Création de bases de données via MongoDb." },
                 {
                   detail:
                     "Développement des fonctionnalités Back-End via Node.js.",
@@ -524,7 +524,7 @@ h1 {
   h1 {
     visibility: visible;
     position: relative;
-    top: -90px;
+    top: -85px;
   }
 
   .exp-tot {
