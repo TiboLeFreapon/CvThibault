@@ -66,8 +66,7 @@ export default {
 </script>
 <style>
 body {
-  --background-color-2: #0000ff; /*#1a1a29*/
-  background-color: var(--background-color-2);
+  background-color: #1a1a29;
   /*background-image: url(./MyOwnIcons/background/fondecran1.png);*/
   overflow-x: hidden;
 }
