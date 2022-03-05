@@ -1,3 +1,5 @@
+#	ssh -p 65002 u558905572@145.14.151.201
+
 # cd rm css/* rm js/* rm img/* rm index.html rm stye.css
 
 
