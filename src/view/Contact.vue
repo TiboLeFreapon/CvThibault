@@ -11,7 +11,7 @@
       <img src="../MyOwnIcons/gmail.png" alt="logo gmail"
     /></a>
     <br />
-    <a href="https://www.instagram.com/thibault.schmi2t/">
+    <a href="https://www.instagram.com/thibault.schmi2t/" target="blank">
       <img src="../MyOwnIcons/insta.png" alt="logo insta"
     /></a>
   </div>
