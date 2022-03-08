@@ -65,7 +65,7 @@ export default {
 };
 
 if (navigator.userAgent.match("iPhone")) {
-  document.getElementById("App").style.display = "none";
+  alert("SALUT FDP");
 }
 </script>
 <style>
