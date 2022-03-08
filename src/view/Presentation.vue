@@ -63,7 +63,7 @@ export default {
 
 .moi {
   width: 100%;
-  animation: presentation 2.5s;
+  animation: presentation 2.5s 0.5s;
 }
 
 .bulle {

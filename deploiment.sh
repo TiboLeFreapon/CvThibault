@@ -1,7 +1,8 @@
-#	ssh -p 65002 u558905572@145.14.151.201
+git add *
 
-# cd public_html rm css/* rm js/* rm img/* rm index.html rm stye.css
+git commit -m "Nouveau deploiment"
 
+ssh -p 65002 u558905572@145.14.151.201 'rm public_html/css/* public_html/stye.css public_html/js/* public_html/img/* public_html/index.html'
 
 yarn build
 
