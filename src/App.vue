@@ -65,7 +65,7 @@ export default {
 };
 
 if (navigator.userAgent.match("iPhone")) {
-  document.getElementById("Nav").style.display = "none";
+  document.getElementById("nav").style.display = "none";
 }
 </script>
 <style>
