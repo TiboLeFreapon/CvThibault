@@ -63,10 +63,6 @@ export default {
     };
   },
 };
-
-if (navigator.userAgent.match("iPhone")) {
-  document.getElementById("nav").style.display = "none";
-}
 </script>
 <style>
 body {

@@ -1,6 +1,3 @@
-git add *
-
-git commit -m "Nouveau deploiment preprod"
 
 ssh -p 65002 u558905572@145.14.151.201 'rm public_html/cv/css/* public_html/cv/stye.css public_html/cv/js/* public_html/cv/img/* public_html/cv/index.html'
 
