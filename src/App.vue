@@ -65,7 +65,7 @@ export default {
 };
 
 if (navigator.userAgent.match("iPhone")) {
-  alert("SALUT FDP");
+  document.getElementById("Nav").style.display = "none";
 }
 </script>
 <style>
